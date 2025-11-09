@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+/.vs/react-superbase/FileContentIndex/a169be02-a501-4646-809b-5b19f72e7d47.vsidx
+/.vs/react-superbase/CopilotIndices/17.14.1368.60722
+/.vs/react-superbase/FileContentIndex/23415779-4f64-498b-9d8e-381126a7a002.vsidx
+*.vsidx
+/.vs/react-superbase/v17
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal
+/.vs/VSWorkspaceState.json
