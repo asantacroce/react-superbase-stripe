@@ -19,7 +19,15 @@ serve(async (req) => {
   }
 
   try {
+    // Log incoming request metadata for debugging
+    try {
+      console.log('Incoming request', { method: req.method, headers: Object.fromEntries(req.headers) })
+    } catch (e) {
+      console.log('Could not stringify headers', e)
+    }
+
     const { cartItems, userId, success_url, cancel_url } = await req.json()
+    console.log('create-checkout payload', { cartItems, userId, success_url, cancel_url })
 
     // Create line items for Stripe
     const line_items = cartItems.map((item: any) => ({
@@ -45,8 +53,12 @@ serve(async (req) => {
       },
     })
 
+    console.log('Stripe session created', { id: session.id, url: session.url })
+
+    const responsePayload = { url: session.url }
+    console.log('create-checkout response', responsePayload)
     return new Response(
-      JSON.stringify({ url: session.url }),
+      JSON.stringify(responsePayload),
       {
         headers: {
           'Content-Type': 'application/json',
