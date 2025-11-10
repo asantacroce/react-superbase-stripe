@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
@@ -10,7 +9,13 @@ import Success from './pages/Success'
 
 function App() {
   return (
-    <Router basename="/react-superbase-stripe">
+    <Router 
+      basename="/react-superbase-stripe"
+      future={{ 
+        v7_startTransition: true,
+        v7_relativeSplatPath: true 
+      }}
+    >
       <AuthProvider>
         <CartProvider>
           <div className="min-h-screen bg-gray-100">
